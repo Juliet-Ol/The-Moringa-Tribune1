@@ -22,7 +22,7 @@ def welcome(request):
 
    
 
-def news_of_day(request):
+def news_today(request):
     date = dt.date.today()
 
     #Function to convert date object to find exact day
@@ -42,7 +42,7 @@ def past_days_news(request,past_date):
         assert False
 
     if date == dt.date.today():
-        return redirect(news_of_day) 
+        return redirect(news_today) 
 
     return render(request,'all-news/past-news.html', {"date": date})     
 
