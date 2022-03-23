@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 class Editor(models.Model):
     first_name = models.CharField(max_length =30)
@@ -24,7 +25,13 @@ class Article(models.Model):
     post = models.TextField()
     editor = models.ForeignKey('Editor', on_delete=models.CASCADE)    
     tags = models.ManyToManyField(tags) 
-    pub_date = models.DateTimeField(auto_now_add=True)     
+    pub_date = models.DateTimeField(auto_now_add=True)  
+
+    @classmethod
+    def todays_news(cls):
+        today = dt.date.today()
+        news =cls.objects.filter(pub_date_date = today)
+        return news   
 
 
 
