@@ -30,12 +30,12 @@ class Article(models.Model):
     @classmethod
     def todays_news(cls):
         today = dt.date.today()
-        news =cls.objects.filter(pub_date_date = today)
+        news =cls.objects.filter(pub_date = today)
         return news   
 
     @classmethod
     def days_news(cls,date):
-        news = cls.objects.filter(pub_date_date = date)
+        news = cls.objects.filter(pub_date = date)
         return news    
 
 
