@@ -1,4 +1,4 @@
-from turtle import title
+# from turtle import title
 from django.db import models
 import datetime as dt
 
@@ -10,6 +10,9 @@ class Editor(models.Model):
 
     def __str__(self):
         return self.first_name
+
+    class Meta:
+        ordering = ['first_name']    
 
     def save_editor(self):
         self.save()        
@@ -44,6 +47,8 @@ class Article(models.Model):
     def search_by_title(cls,search_term):
         news = cls.objects.filter(title_icontains=search_term)
         return news     
+    
+    
 
 
 
