@@ -22,5 +22,5 @@ urlpatterns = [
     url('',include('news.urls')),
     url('accounts/', include('django_registration.backends.one_step.urls')),
     url('accounts/', include('django.contrib.auth.urls')),
-    
+    # url('logout/$', views.logout, {"next_page": '/'}),
 ]
